@@ -1,6 +1,28 @@
-import  {createContext}  from 'react';
+import  {createContext, useState}  from 'react';
 
-const UserContext = createContext(null);
+export const UserContext = createContext(null);
 
 
-export default UserContext;
+export default function userProvider({children})
+{
+
+const[user , setUser]=useState({
+
+    name:'ovi',
+    family:'aghaei',
+    role:'admin'
+
+
+})
+return(
+
+    <UserContext.Provider  value={{user , setUser}}>
+
+        {children}
+
+
+    </UserContext.Provider>
+)
+
+
+}
